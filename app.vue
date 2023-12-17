@@ -35,6 +35,10 @@ td {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* 酌情修改 */
 body {
   background: #fff;
@@ -143,19 +147,13 @@ a {
   text-decoration: none;
 }
 
-a:link {
-  color: #009;
-}
-
-a:visited {
-  color: #800080;
-}
-
+a:link,
+a:visited,
 a:hover,
 a:active,
 a:focus {
-  color: #c00;
-  text-decoration: underline;
+  color: currentColor;
+  text-decoration: none;
 }
 
 /* 鼠标样式 */
@@ -174,5 +172,22 @@ input::-moz-focus-inner {
 
 .clear {
   clear: both;
+}
+
+/* 修改滚动条的样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  /* 滚动条宽度 */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* 滚动条轨道背景色 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  /* 滚动条滑块颜色 */
+  border-radius: 4px;
 }
 </style>

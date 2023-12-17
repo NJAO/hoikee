@@ -1,10 +1,10 @@
 # Nuxt dev/build outputs
 .output
+.output.zip
 .data
 .nuxt
 .nitro
 .cache
-.nuxt.zip
 dist
 
 # Node dependencies

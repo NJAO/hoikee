@@ -5,6 +5,26 @@
       <div class="menu_icon" :class="{ 'open': isOpenMenu }">
         <SvgoMenu v-if="!isOpenMenu" class="nav_icon" @click="isOpenMenu = !isOpenMenu" />
         <SvgoMenuClose v-else class="nav_icon" @click="isOpenMenu = !isOpenMenu" />
+        <ul class="wep_list" :class="{ 'open': isOpenMenu }">
+          <li>
+            <NuxtLink to="/">主頁</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/new-show">最新演出</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/library">資料館</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/lab">實驗室</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/about-us">關於創作社</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/about-us">聯繫我們</NuxtLink>
+          </li>
+        </ul>
       </div>
       <ul class="list">
         <li>
@@ -23,7 +43,7 @@
           <NuxtLink to="/about-us">關於創作社</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about-us">聯係我們</NuxtLink>
+          <NuxtLink to="/about-us">聯繫我們</NuxtLink>
         </li>
       </ul>
     </div>
@@ -31,7 +51,6 @@
 </template>
 
 <script lang="ts" setup>
-const isScrolled = ref<Boolean>(false)
 const isOpenMenu = ref<Boolean>(false)
 
 </script>
@@ -48,19 +67,50 @@ const isOpenMenu = ref<Boolean>(false)
     .menu_icon {
       width: 100%;
       display: flex;
+      position: relative;
       flex-direction: row-reverse;
       transition: transform .5s ease-in-out;
 
+      .wep_list {
+        display: flex;
+        position: absolute;
+        top: 56px;
+        right: 16px;
+        gap: 24px;
+        -webkit-gap: 24px;
+        -moz-gap: 24px;
+        -o-gap: 24px;
+        flex-direction: column;
+        background-color: #d3d0bf;
+        padding: 16px;
+        border-radius: 4px;
+        font-size: 16px;
+        color: #353535;
+        opacity: 0;
+        transition: opacity .3s ease-in-out;
+        pointer-events: none;
+        font-weight: 600;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        &.open {
+
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        @media screen and (min-width: 768px) {
+          display: none !important;
+          ;
+        }
+      }
 
       .nav_icon {
         background-color: #612725;
-        margin: 8px;
+        margin: 16px;
         cursor: pointer;
-
-      }
-
-      &.open {
-        // transform: translateX(calc(-100% + 12px));
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
       }
 
       @media screen and (min-width: 768px) {
